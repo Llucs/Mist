@@ -45,7 +45,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    MistApp()
+                    MistContent()
                 }
             }
         }
@@ -53,7 +53,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun MistApp() {
+fun MistContent() {
     var weatherState by remember { mutableStateOf(WeatherState()) }
     var screen by remember { mutableStateOf("weather") }
     val scope = rememberCoroutineScope()

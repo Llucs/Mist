@@ -1,14 +1,12 @@
 package com.llucs.mist.widget
 
 import android.content.Context
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.glance.GlanceId
 import androidx.glance.GlanceModifier
 import androidx.glance.GlanceTheme
-import androidx.glance.action.actionStartActivity
 import androidx.glance.appwidget.GlanceAppWidget
 import androidx.glance.appwidget.provideContent
 import androidx.glance.background
@@ -24,8 +22,6 @@ import androidx.glance.layout.width
 import androidx.glance.text.FontWeight
 import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
-import androidx.glance.unit.ColorProvider
-import com.llucs.mist.MainActivity
 import com.llucs.mist.data.model.WeatherState
 
 class MistWidget : GlanceAppWidget() {
@@ -52,7 +48,7 @@ class MistWidget : GlanceAppWidget() {
     }
 }
 
-@Composable
+@androidx.compose.runtime.Composable
 fun MistWidgetContent(
     temperature: String,
     condition: String,
@@ -60,14 +56,10 @@ fun MistWidgetContent(
     maxTemp: String? = null,
     minTemp: String? = null
 ) {
-    val surfaceColor = GlanceTheme.colors.widgetBackground
-    val onSurface = GlanceTheme.colors.onBackground
-    val primary = GlanceTheme.colors.primary
-
     Column(
         modifier = GlanceModifier
             .fillMaxSize()
-            .background(surfaceColor)
+            .background(Color.Transparent)
             .padding(12.dp),
         verticalAlignment = Alignment.Top
     ) {
@@ -76,7 +68,7 @@ fun MistWidgetContent(
             style = TextStyle(
                 fontSize = 42.sp,
                 fontWeight = FontWeight.Light,
-                color = ColorProvider(onSurface)
+                color = GlanceTheme.colors.onBackground
             )
         )
         Text(
@@ -84,7 +76,7 @@ fun MistWidgetContent(
             style = TextStyle(
                 fontSize = 14.sp,
                 fontWeight = FontWeight.Medium,
-                color = ColorProvider(onSurface)
+                color = GlanceTheme.colors.onBackground
             )
         )
         Spacer(modifier = GlanceModifier.height(4.dp))
@@ -92,7 +84,7 @@ fun MistWidgetContent(
             text = location,
             style = TextStyle(
                 fontSize = 12.sp,
-                color = ColorProvider(primary)
+                color = GlanceTheme.colors.primary
             )
         )
         if (maxTemp != null && minTemp != null) {
@@ -102,12 +94,12 @@ fun MistWidgetContent(
             ) {
                 Text(
                     text = "H: $maxTemp",
-                    style = TextStyle(fontSize = 11.sp, color = ColorProvider(onSurface))
+                    style = TextStyle(fontSize = 11.sp, color = GlanceTheme.colors.onBackground)
                 )
                 Spacer(modifier = GlanceModifier.width(8.dp))
                 Text(
                     text = "L: $minTemp",
-                    style = TextStyle(fontSize = 11.sp, color = ColorProvider(onSurface))
+                    style = TextStyle(fontSize = 11.sp, color = GlanceTheme.colors.onBackground)
                 )
             }
         }

@@ -67,7 +67,7 @@ fun MistWidgetContent(
             text = temperature,
             style = TextStyle(
                 fontSize = 42.sp,
-                fontWeight = FontWeight.Light,
+                fontWeight = FontWeight.Normal,
                 color = GlanceTheme.colors.onBackground
             )
         )

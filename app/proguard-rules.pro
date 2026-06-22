@@ -1,0 +1,5 @@
+-keepclassmembers class com.mist.weather.data.model.** { *; }
+-keep class com.mist.weather.data.api.** { *; }
+-keepattributes Signature
+-dontwarn okhttp3.**
+-dontwarn retrofit2.**

@@ -1,0 +1,16 @@
+name: Report an issue
+description: Found a bug or have a suggestion?
+body:
+  - type: textarea
+    attributes:
+      label: Description
+      description: What happened? What did you expect?
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Steps to reproduce
+      description: How can we reproduce this?
+  - type: input
+    attributes:
+      label: Device / Android version
